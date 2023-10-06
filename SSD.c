@@ -41,13 +41,44 @@ int main()
 		}
 		DIO_voidSetPinValue(DIO_PORTD,DIO_Pin2,DIO_PinLow);
 		_delay_ms(100);
-		for(k=0;k<6;k++) //for red lamb 60sec
+
+		for(n=0;n<2;n++) //for yellow lamb 15sec
 		{
 
+			PORTA=SSD1_u8[1-n];
+			if(n==1)
+			{
+
+				for(v=0;v<10;v++)
+				{
+					DIO_voidSetPinValue(DIO_PORTD,DIO_Pin1,DIO_PinHigh);
+					PORTB=SSD2_u8[9-v];
+					_delay_ms(100);
+				}
+				break;
+			}
+			for(m=0;m<6;m++)
+			{
+				DIO_voidSetPinValue(DIO_PORTD,DIO_Pin1,DIO_PinHigh);
+				PORTB=SSD2_u8[5-m];
+				_delay_ms(100);
+			}
+			if(n==1)
+			{
+				for(v=0;v<10;v++)
+				{
+					DIO_voidSetPinValue(DIO_PORTD,DIO_Pin1,DIO_PinHigh);
+					PORTB=SSD2_u8[9-v];
+					_delay_ms(100);
+					break;
+				}
+			}
+		}
+		DIO_voidSetPinValue(DIO_PORTD,DIO_Pin1,DIO_PinLow);
+		_delay_ms(100);
+		for(k=0;k<6;k++) //for red lamb 60sec
+		{
 			PORTA=SSD1_u8[5-k];
-
-
-
 			for(l=0;l<10;l++)
 			{
 				DIO_voidSetPinValue(DIO_PORTD,DIO_Pin0,DIO_PinHigh);
@@ -64,27 +95,20 @@ int main()
 			PORTA=SSD1_u8[1-n];
 			if(n==1)
 			{
-
 				for(v=0;v<10;v++)
 				{
 					DIO_voidSetPinValue(DIO_PORTD,DIO_Pin1,DIO_PinHigh);
 					PORTB=SSD2_u8[9-v];
 					_delay_ms(100);
-
-
-
-
 				}
 				break;
 			}
 
 			for(m=0;m<6;m++)
 			{
-
 				DIO_voidSetPinValue(DIO_PORTD,DIO_Pin1,DIO_PinHigh);
 				PORTB=SSD2_u8[5-m];
 				_delay_ms(100);
-
 			}
 			if(n==1)
 			{
@@ -96,16 +120,11 @@ int main()
 					_delay_ms(100);
 
 					break;
-
-
 				}
 			}
-
 		}
 		DIO_voidSetPinValue(DIO_PORTD,DIO_Pin1,DIO_PinLow);
 		_delay_ms(100);
-
 	}
-
 }
 
